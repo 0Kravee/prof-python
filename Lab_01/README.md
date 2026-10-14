@@ -64,7 +64,3 @@ demo is executed.
 - `src/student_project/` — thin compatibility package (re-exports)
 - `tests/` — pytest tests
 
-## Author
-
-Student: Name Surname
-Group: XX-00
