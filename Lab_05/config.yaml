@@ -1,0 +1,24 @@
+schema_version: 1
+
+input:
+  path: data/vehicles.csv
+  format: auto
+
+output:
+  path: output/vehicles.json
+  format: auto
+  errors_path: output/errors.csv
+  backup_existing: false
+
+processing:
+  skip_invalid: true
+  minimum_year: 1990
+  maximum_year: 2026
+  minimum_price: 0
+  maximum_price: 200000
+
+logging:
+  level: INFO
+  path: logs/application.log
+  max_bytes: 1048576
+  backup_count: 3

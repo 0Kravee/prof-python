@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reliable-importer"
+version = "0.1.0"
+description = "Reliable import/export and configuration module (laboratory work 5)"
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+dev = ["mypy>=1.10", "pytest>=8.0"]
+test = ["mypy>=1.10", "pytest>=8.0"]
+
+[project.scripts]
+reliable-importer = "reliable_importer.main:main"
+reliable-experiments = "reliable_importer.experiments:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+mypy_path = "src"
+files = ["src"]

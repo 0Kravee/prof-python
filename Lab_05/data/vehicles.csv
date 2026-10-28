@@ -1,0 +1,16 @@
+vehicle_id,brand,model,year,price,mileage
+1,Toyota,Camry,2019,21500,45000
+2,BMW,X5,2021,48200,18000
+3,Toyota,Corolla,2022,19800,9000
+4,Audi,A4,2018,23000,62000
+5,BMW,3 Series,2020,31000,27000
+6,Tesla,Model 3,2022,41000,15000
+7,Skoda,Octavia,2023,26500,1200
+8,,Golf,2019,18000,40000
+9,Volkswagen,Passat,1850,9000,150000
+abc,Kia,Rio,2020,9000,5000
+11,Ford,Focus,2018,-500,70000
+12,Honda,Civic,2019,15000,-10
+13,Mazda,CX-5,2021,expensive,12000
+14,Mercedes,E-Class,2020,950000,30000
+15,Renault,Clio,2024,12000,3000
