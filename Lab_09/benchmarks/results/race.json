@@ -1,0 +1,82 @@
+[
+  {
+    "variant": "Unsafe",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 503,
+    "lost": 1497,
+    "seconds": 0.032358721999969475
+  },
+  {
+    "variant": "Lock",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 2000,
+    "lost": 0,
+    "seconds": 0.1374685979999981
+  },
+  {
+    "variant": "Unsafe",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 501,
+    "lost": 1499,
+    "seconds": 0.0320136060000209
+  },
+  {
+    "variant": "Lock",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 2000,
+    "lost": 0,
+    "seconds": 0.13761358400000745
+  },
+  {
+    "variant": "Unsafe",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 501,
+    "lost": 1499,
+    "seconds": 0.0336686020000343
+  },
+  {
+    "variant": "Lock",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 2000,
+    "lost": 0,
+    "seconds": 0.13704599499999404
+  },
+  {
+    "variant": "Unsafe",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 501,
+    "lost": 1499,
+    "seconds": 0.03165733599996656
+  },
+  {
+    "variant": "Lock",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 2000,
+    "lost": 0,
+    "seconds": 0.13618719499999088
+  },
+  {
+    "variant": "Unsafe",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 501,
+    "lost": 1499,
+    "seconds": 0.03208883400003515
+  },
+  {
+    "variant": "Lock",
+    "threads": 4,
+    "expected": 2000,
+    "actual": 2000,
+    "lost": 0,
+    "seconds": 0.13715090200003033
+  }
+]

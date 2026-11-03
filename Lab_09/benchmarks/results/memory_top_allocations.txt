@@ -1,0 +1,15 @@
+tracemalloc: top 5 allocation sites while converting 200 000 cars to NumPy arrays
+   /home/claude/w/Lab_09/src/car_catalog/analytics.py:179: size=1563 KiB, count=4, average=391 KiB
+   /home/claude/w/Lab_09/src/car_catalog/analytics.py:178: size=1563 KiB, count=3, average=521 KiB
+   /home/claude/w/Lab_09/src/car_catalog/analytics.py:177: size=781 KiB, count=2, average=391 KiB
+   /home/claude/w/Lab_09/src/car_catalog/analytics.py:174: size=781 KiB, count=2, average=391 KiB
+   /home/claude/w/Lab_09/src/car_catalog/analytics.py:172: size=136 B, count=2, average=68 B
+
+tracemalloc: top 5 allocation sites while generating 200 000 Car objects
+   /home/claude/w/Lab_09/src/car_catalog/datagen.py:44: size=18.3 MiB, count=400000, average=48 B
+   /usr/lib/python3.12/random.py:318: size=6250 KiB, count=200000, average=32 B
+   /home/claude/w/Lab_09/src/car_catalog/datagen.py:42: size=6230 KiB, count=199359, average=32 B
+   /home/claude/w/Lab_09/src/car_catalog/datagen.py:43: size=1586 KiB, count=1, average=1586 KiB
+   /home/claude/w/Lab_09/src/car_catalog/models.py:22: size=56 B, count=1, average=56 B
+
+peak memory of manufacturer_statistics_python(200 000): 0.004 MB (the data are already in memory)

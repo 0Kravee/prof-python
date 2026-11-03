@@ -1,0 +1,20 @@
+         70 function calls in 0.012 seconds
+
+   Ordered by: cumulative time
+   List reduced from 27 to 12 due to restriction <12>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.012    0.012 benchmark.py:376(numpy_pipeline)
+        1    0.004    0.004    0.010    0.010 analytics.py:196(manufacturer_statistics_numpy)
+        1    0.005    0.005    0.005    0.005 analytics.py:185(estimated_values_numpy)
+        1    0.000    0.000    0.002    0.002 analytics.py:219(mileage_statistics_numpy)
+        1    0.000    0.000    0.001    0.001 {method 'std' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.001    0.001 _methods.py:217(_std)
+        1    0.001    0.001    0.001    0.001 _methods.py:148(_var)
+        6    0.001    0.000    0.001    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+        2    0.000    0.000    0.001    0.000 {method 'mean' of 'numpy.ndarray' objects}
+        2    0.000    0.000    0.001    0.000 _methods.py:115(_mean)
+        1    0.000    0.000    0.000    0.000 analytics.py:232(average_price_numpy)
+        1    0.000    0.000    0.000    0.000 {method 'min' of 'numpy.ndarray' objects}
+
+

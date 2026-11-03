@@ -1,0 +1,20 @@
+         1400035 function calls in 1.044 seconds
+
+   Ordered by: cumulative time
+   List reduced from 24 to 12 due to restriction <12>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    1.044    1.044 benchmark.py:373(<lambda>)
+        1    0.002    0.002    1.044    1.044 benchmark.py:345(all_operations)
+        1    0.000    0.000    0.883    0.883 analytics.py:116(manufacturer_statistics_python)
+        1    0.123    0.123    0.883    0.883 analytics.py:77(partial_manufacturer_statistics)
+   200000    0.648    0.000    0.728    0.000 analytics.py:55(estimated_value)
+   400001    0.103    0.000    0.117    0.000 {built-in method builtins.max}
+        1    0.027    0.027    0.051    0.051 services.py:43(search_by_brand)
+        1    0.000    0.000    0.037    0.037 services.py:60(find_most_expensive)
+        1    0.002    0.002    0.036    0.036 services.py:65(calculate_average_price)
+        1    0.017    0.017    0.034    0.034 {built-in method builtins.sum}
+   200000    0.032    0.000    0.032    0.000 {method 'get' of 'dict' objects}
+        1    0.030    0.030    0.030    0.030 analytics.py:122(mileage_statistics_python)
+
+
