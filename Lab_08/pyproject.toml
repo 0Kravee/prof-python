@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "car-catalog-api"
+version = "0.8.0"
+description = "Asynchronous REST API for the car catalog (laboratory work 8)"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "sqlalchemy>=2.0",
+    "httpx",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-asyncio",
+    "mypy>=1.10",
+]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+car-api = "car_catalog.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = [
+    # newer Starlette versions announce a future switch of TestClient to
+    # "httpx2"; it does not affect the behaviour of the tests
+    "ignore:Using .httpx. with .starlette.testclient. is deprecated",
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+mypy_path = "src"
+files = ["src"]
+plugins = ["pydantic.mypy"]

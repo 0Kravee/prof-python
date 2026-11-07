@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest
+pytest-asyncio
+mypy>=1.10
