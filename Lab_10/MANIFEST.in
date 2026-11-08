@@ -1,0 +1,4 @@
+include LICENSE README.md CHANGELOG.md alembic.ini .env.example
+recursive-include migrations *.py *.mako
+recursive-include tests *.py
+include docs/openapi.json

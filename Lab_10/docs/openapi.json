@@ -1,0 +1,1096 @@
+{
+  "components": {
+    "schemas": {
+      "AveragePriceOut": {
+        "properties": {
+          "average_price": {
+            "title": "Average Price",
+            "type": "number"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "count",
+          "average_price"
+        ],
+        "title": "AveragePriceOut",
+        "type": "object"
+      },
+      "CarCreate": {
+        "properties": {
+          "manufacturer_id": {
+            "minimum": 1.0,
+            "title": "Manufacturer Id",
+            "type": "integer"
+          },
+          "mileage": {
+            "examples": [
+              45000
+            ],
+            "minimum": 0.0,
+            "title": "Mileage",
+            "type": "integer"
+          },
+          "model": {
+            "examples": [
+              "Camry"
+            ],
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Model",
+            "type": "string"
+          },
+          "price": {
+            "examples": [
+              21500.0
+            ],
+            "minimum": 0.0,
+            "title": "Price",
+            "type": "number"
+          },
+          "vin": {
+            "anyOf": [
+              {
+                "maxLength": 17,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "examples": [
+              "4T1BF1FK5HU000001"
+            ],
+            "title": "Vin"
+          },
+          "year": {
+            "examples": [
+              2020
+            ],
+            "maximum": 2100.0,
+            "minimum": 1900.0,
+            "title": "Year",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "manufacturer_id",
+          "model",
+          "year",
+          "price",
+          "mileage"
+        ],
+        "title": "CarCreate",
+        "type": "object"
+      },
+      "CarOut": {
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "manufacturer": {
+            "title": "Manufacturer",
+            "type": "string"
+          },
+          "manufacturer_id": {
+            "title": "Manufacturer Id",
+            "type": "integer"
+          },
+          "mileage": {
+            "title": "Mileage",
+            "type": "integer"
+          },
+          "model": {
+            "title": "Model",
+            "type": "string"
+          },
+          "price": {
+            "title": "Price",
+            "type": "number"
+          },
+          "vin": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Vin"
+          },
+          "year": {
+            "title": "Year",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "manufacturer_id",
+          "manufacturer",
+          "model",
+          "year",
+          "price",
+          "mileage",
+          "vin"
+        ],
+        "title": "CarOut",
+        "type": "object"
+      },
+      "CarUpdate": {
+        "description": "Only the price and the mileage can be changed.",
+        "properties": {
+          "mileage": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mileage"
+          },
+          "price": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Price"
+          }
+        },
+        "title": "CarUpdate",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "HealthOut": {
+        "properties": {
+          "database": {
+            "title": "Database",
+            "type": "string"
+          },
+          "environment": {
+            "title": "Environment",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "version",
+          "environment",
+          "database"
+        ],
+        "title": "HealthOut",
+        "type": "object"
+      },
+      "ManufacturerCreate": {
+        "properties": {
+          "country": {
+            "anyOf": [
+              {
+                "maxLength": 100,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "examples": [
+              "Japan"
+            ],
+            "title": "Country"
+          },
+          "name": {
+            "examples": [
+              "Toyota"
+            ],
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "ManufacturerCreate",
+        "type": "object"
+      },
+      "ManufacturerOut": {
+        "properties": {
+          "country": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Country"
+          },
+          "id": {
+            "title": "Id",
+            "type": "integer"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "country"
+        ],
+        "title": "ManufacturerOut",
+        "type": "object"
+      },
+      "ManufacturerStatsOut": {
+        "properties": {
+          "average_price": {
+            "title": "Average Price",
+            "type": "number"
+          },
+          "cars": {
+            "title": "Cars",
+            "type": "integer"
+          },
+          "manufacturer": {
+            "title": "Manufacturer",
+            "type": "string"
+          }
+        },
+        "required": [
+          "manufacturer",
+          "cars",
+          "average_price"
+        ],
+        "title": "ManufacturerStatsOut",
+        "type": "object"
+      },
+      "StatisticsOut": {
+        "properties": {
+          "average_price": {
+            "title": "Average Price",
+            "type": "number"
+          },
+          "count": {
+            "title": "Count",
+            "type": "integer"
+          },
+          "manufacturers": {
+            "items": {
+              "$ref": "#/components/schemas/ManufacturerStatsOut"
+            },
+            "title": "Manufacturers",
+            "type": "array"
+          },
+          "max_price": {
+            "title": "Max Price",
+            "type": "number"
+          },
+          "min_price": {
+            "title": "Min Price",
+            "type": "number"
+          },
+          "total_price": {
+            "title": "Total Price",
+            "type": "number"
+          }
+        },
+        "required": [
+          "count",
+          "total_price",
+          "average_price",
+          "min_price",
+          "max_price",
+          "manufacturers"
+        ],
+        "title": "StatisticsOut",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "\nCatalog of cars and manufacturers (laboratory works 1 - 10).\n\n* read endpoints are open;\n* `POST`, `PATCH` and `DELETE` require the `X-API-Key` header when the\n  `API_KEY` environment variable is set.\n",
+    "title": "Car Catalog API",
+    "version": "1.0.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/cars": {
+      "get": {
+        "description": "Search by brand/model, filter by year, price and mileage.",
+        "operationId": "list_cars_cars_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "brand",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Brand"
+            }
+          },
+          {
+            "in": "query",
+            "name": "model",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Model"
+            }
+          },
+          {
+            "in": "query",
+            "name": "year",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Year"
+            }
+          },
+          {
+            "in": "query",
+            "name": "min_year",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Min Year"
+            }
+          },
+          {
+            "in": "query",
+            "name": "max_year",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Max Year"
+            }
+          },
+          {
+            "in": "query",
+            "name": "min_price",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Min Price"
+            }
+          },
+          {
+            "in": "query",
+            "name": "max_price",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Max Price"
+            }
+          },
+          {
+            "in": "query",
+            "name": "max_mileage",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Max Mileage"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "schema": {
+              "default": "id",
+              "title": "Sort By",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "descending",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "Descending",
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 50,
+              "maximum": 1000,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CarOut"
+                  },
+                  "title": "Response List Cars Cars Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Cars",
+        "tags": [
+          "cars"
+        ]
+      },
+      "post": {
+        "operationId": "create_car_cars_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-api-key",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Car",
+        "tags": [
+          "cars"
+        ]
+      }
+    },
+    "/cars/average-price": {
+      "get": {
+        "operationId": "average_price_cars_average_price_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AveragePriceOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Average Price",
+        "tags": [
+          "cars"
+        ]
+      }
+    },
+    "/cars/lowest-mileage": {
+      "get": {
+        "operationId": "lowest_mileage_cars_lowest_mileage_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Lowest Mileage",
+        "tags": [
+          "cars"
+        ]
+      }
+    },
+    "/cars/most-expensive": {
+      "get": {
+        "operationId": "most_expensive_cars_most_expensive_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Most Expensive",
+        "tags": [
+          "cars"
+        ]
+      }
+    },
+    "/cars/{car_id}": {
+      "delete": {
+        "operationId": "delete_car_cars__car_id__delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car_id",
+            "required": true,
+            "schema": {
+              "title": "Car Id",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-api-key",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Delete Car",
+        "tags": [
+          "cars"
+        ]
+      },
+      "get": {
+        "operationId": "get_car_cars__car_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car_id",
+            "required": true,
+            "schema": {
+              "title": "Car Id",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Car",
+        "tags": [
+          "cars"
+        ]
+      },
+      "patch": {
+        "operationId": "update_car_cars__car_id__patch",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "car_id",
+            "required": true,
+            "schema": {
+              "title": "Car Id",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-api-key",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Update Car",
+        "tags": [
+          "cars"
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "description": "Liveness and database check (used by the Docker HEALTHCHECK).",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health",
+        "tags": [
+          "service"
+        ]
+      }
+    },
+    "/manufacturers": {
+      "get": {
+        "operationId": "list_manufacturers_manufacturers_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ManufacturerOut"
+                  },
+                  "title": "Response List Manufacturers Manufacturers Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Manufacturers",
+        "tags": [
+          "manufacturers"
+        ]
+      },
+      "post": {
+        "operationId": "create_manufacturer_manufacturers_post",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-api-key",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManufacturerCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManufacturerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Manufacturer",
+        "tags": [
+          "manufacturers"
+        ]
+      }
+    },
+    "/manufacturers/{manufacturer_id}": {
+      "get": {
+        "operationId": "get_manufacturer_manufacturers__manufacturer_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "manufacturer_id",
+            "required": true,
+            "schema": {
+              "title": "Manufacturer Id",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManufacturerOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Get Manufacturer",
+        "tags": [
+          "manufacturers"
+        ]
+      }
+    },
+    "/manufacturers/{manufacturer_id}/cars": {
+      "get": {
+        "operationId": "list_manufacturer_cars_manufacturers__manufacturer_id__cars_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "manufacturer_id",
+            "required": true,
+            "schema": {
+              "title": "Manufacturer Id",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CarOut"
+                  },
+                  "title": "Response List Manufacturer Cars Manufacturers  Manufacturer Id  Cars Get",
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "List Manufacturer Cars",
+        "tags": [
+          "manufacturers"
+        ]
+      }
+    },
+    "/statistics": {
+      "get": {
+        "operationId": "statistics_statistics_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatisticsOut"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Statistics",
+        "tags": [
+          "statistics"
+        ]
+      }
+    }
+  }
+}

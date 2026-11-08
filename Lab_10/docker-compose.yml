@@ -1,0 +1,19 @@
+# docker compose up --build
+# Variables are read from the shell or from a local ".env" file (not committed).
+services:
+  api:
+    build: .
+    image: car-catalog:1.0.0
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      APP_ENV: ${APP_ENV:-production}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      DATABASE_URL: ${DATABASE_URL:-sqlite:////data/cars.db}
+      API_KEY: ${API_KEY:-}
+    volumes:
+      - car-data:/data
+    restart: unless-stopped
+
+volumes:
+  car-data:

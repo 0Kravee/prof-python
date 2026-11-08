@@ -1,0 +1,8 @@
+{
+  "calls": 600,
+  "hits": 588,
+  "misses": 12,
+  "cache_size": 12,
+  "invalidation_changed_result": true,
+  "after_update_matches_full_recompute": true
+}
